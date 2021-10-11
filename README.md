@@ -1,4 +1,4 @@
-# cellarius
+# Cellarius
 Unterstützung menschlicher Mitarbeiter (Human in the loop concept)
 Verwendung von KI in eingeschränkten Arbeitsbereichen
 Autogenerlerung vonAntwort-Emails" auf Basis von eingegangenen Emails
