@@ -10,3 +10,8 @@ Dle Welterentwicklung der Kl erfolgt anhand durch den Menschen verbesserten Emai
 - Teammember: Romeo Bhuiyan
 - Teammember: Martin Hausleitner
 - Teammember: Jakob Lehner
+
+## Sinn/Zweck/ USP
+### Wozu soll das Endergebnis dienen? 
+Generierte Antworten sorgen für Zeitersparnisse und
+Vereinfachung der Kundenemailkommunikation
