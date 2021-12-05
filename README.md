@@ -1,14 +1,8 @@
 
 ![Logo](https://user-images.githubusercontent.com/55828102/144297265-cbb2f6fe-d3a0-462e-a3cf-f454cf0dc615.png)
 
-Unterstützung menschlicher Mitarbeiter (Human in the loop concept)
-Verwendung von KI in eingeschränkten Arbeitsbereichen
-Autogenerlerung vonAntwort-Emails" auf Basis von eingegangenen Emails
-Das Ersttralning der Kl erfolgt anhand bestehender Emailkonversationen
-Dle Welterentwicklung der Kl erfolgt anhand durch den Menschen verbesserten Emailantworten
-
 ## Projektorganisation:
-- Projektleiter: Zeno Paukner zeno.paukner@gmail.com
+- Projektleiter: Zeno Paukner
 - Teammember: Romeo Bhuiyan
 - Teammember: Martin Hausleitner
 - Teammember: Jakob Lehner
