@@ -22,10 +22,6 @@
 Generierte Antworten sorgen für Zeitersparnisse und
 Vereinfachung der Kundenemailkommunikation
 
-## Kunde / Beteiligte
-### Für wen tun wir das?
-Für alle, die mit Kundenemailkommunikation zu tun haben
-
 ## Endergebnis
 ### Welches Endergebnis soll erreicht werden?
 Ersttraining der KI erfolgreich verlaufen, Weiterentwicklung funktional
