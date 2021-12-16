@@ -4,28 +4,8 @@
 <p align="center">Eine künstliche Intelligenz, trainiert auf Supportanfragen,<br> die automatisch Emailantworten für Servicemitarbeiter generiert. 
 </p>
 
-## Projektorganisation:
-- Projektleiter: Zeno Paukner
-- Teammember: Romeo Bhuiyan
-- Teammember: Martin Hausleitner
-- Teammember: Jakob Lehner
-
-## Projekthintergrund / Motivation
-- Unterstützung menschlicher Mitarbeiter (Human in the loop concept)
-- Verwendung von KI in eingeschränkten Arbeitsbereichen
-- Autogenerierung von "Antwort-Emails" auf Basis von eingegangen Emails
-- Das Ersttraining der KI erfolgt anhand bestehender Emailkonversationen
-- Die Weiterentwicklung der KI erfolgt anhand durch den Menschen verbesserten Emailantworten
-
-## Sinn/Zweck / USP
-### Wozu soll das Endergebnis dienen? 
-Generierte Antworten sorgen für Zeitersparnisse und
-Vereinfachung der Kundenemailkommunikation
-
-## Endergebnis
-### Welches Endergebnis soll erreicht werden?
-Ersttraining der KI erfolgreich verlaufen, Weiterentwicklung funktional
-
-## Kriterien
-### Woran kann das Ergebnis gemessen werden?
-Mitarbeiter zufrieden mit generierten Emailvorlagen
+## Run Python Script
+1. Install requirements
+```pip install -r requirements.txt```
+2. Run Code
+```python reademails.py```
