@@ -17,7 +17,7 @@ Cellarius ist eine künstliche Intelligenz, die auf eine Kundenemail eine Antwor
 
 
 ## Mitwirkende
-Projektleiter: Zeno Paukner
-Teammember: Romeo Bhuiyan
-Teammember: Martin Hausleitner
-Teammember: Jakob Lehner
+- Projektleiter: Zeno Paukner
+- Teammember: Romeo Bhuiyan
+- Teammember: Martin Hausleitner
+- Teammember: Jakob Lehner
