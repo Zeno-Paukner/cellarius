@@ -12,8 +12,26 @@ Dieses Repository clonen und in das Verzeichnis wechseln. Dann die folgenden Bef
 
 ```python reademails.py```
 
-## Zeitaufnahme
-[ClickUp Zeitaufzeichnung](https://sharing.clickup.com/l/h/5-90560575-1/a95ad6e55acd517)
+## Zeitaufzeichung
+[LIVE ClickUp Zeitaufzeichnung](https://sharing.clickup.com/l/h/5-90560575-1/a95ad6e55acd517)
+
+#### Sprints
+| Checkpoint | Review     | Zeit gesamt | Details |
+|--------|------------|:-----------:|---------|
+|Initialisierung|-|37:22|[Excel Download](organisation/Initialisierung%20&%20Planung%20-%20Zeitaufzeichung.xlsx)|
+|Planung |-|105:00|[Excel Download](organisation/Initialisierung%20&%20Planung%20-%20Zeitaufzeichung.xlsx)|
+| Sprint 1      | 06.12.2021 | 27:20       |[Excel Download](organisation/Sprint%201%20-%20Zeitaufzeichnung.xlsx)|
+| Sprint 2      | 20.12.2021 | 69:12       |[Excel Download](organisation/Sprint%202%20-%20Zeitaufzeichnung.xlsx)|
+| Sprint 3      | 17.01.2021 | Open        |         |
+
+#### Mitwirkende Gesamte Zeitaufzeichung - [Excel Download](organisation/Zeitaufzeichnung%20per%20Mitwirkender.xlsx)
+| Platz | Name               | Gesamte Zeit |
+|:-----:|--------------------|:------------:|
+|   1   | Martin Hausleitner |     74:58    |
+|   2   | Romeo Bhuiyan      |     55:45    |
+|   3   | Zeno Paukner       |     54:15    |
+|   4   | Jakob Lehner       |     53:56    |
+
 
 
 ## Mitwirkende
