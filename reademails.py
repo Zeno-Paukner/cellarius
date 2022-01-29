@@ -34,4 +34,5 @@ for msg in mailbox.fetch(AND(all=True)):
     c = c + 1
     x = collection.insert_one(email)
     print ("Saved:", c, msg.uid, msg.subject)
+    break
 mailbox.logout()
