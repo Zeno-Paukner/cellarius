@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 load_dotenv()
 
 # account credentials
-username = os.getenv('cellarius')
-password = os.getenv('Y*QQL2T!GaxWb&2Uf6@U')
+username = os.getenv('UN')
+password = os.getenv('PW')
 imapserver = os.getenv('ISV')
 mongodbcs = os.getenv('MCS')
 
