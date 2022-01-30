@@ -15,26 +15,6 @@ Dieses Repository clonen und in das Verzeichnis wechseln. Dann die folgenden Bef
 ## Zeitaufzeichung
 [LIVE ClickUp Zeitaufzeichnung](https://sharing.clickup.com/l/h/5-90560575-1/a95ad6e55acd517)
 
-#### Sprints
-| Checkpoint | Review     | Zeit gesamt | Details |
-|--------|------------|:-----------:|---------|
-|Initialisierung|-|37:22|[Excel Download](organisation/Initialisierung%20&%20Planung%20-%20Zeitaufzeichung.xlsx)|
-|Planung |-|105:00|[Excel Download](organisation/Initialisierung%20&%20Planung%20-%20Zeitaufzeichung.xlsx)|
-| Sprint 1      | 06.12.2021 | 27:20       |[Excel Download](organisation/Sprint%201%20-%20Zeitaufzeichnung.xlsx)|
-| Sprint 2      | 20.12.2021 | 69:12       |[Excel Download](organisation/Sprint%202%20-%20Zeitaufzeichnung.xlsx)|
-| Sprint 3      | 17.01.2021 | 96:20       |[Excel Download](organisation/Sprint%203%20-%20Zeitaufzeichnung.xlsx)|
-| Sprint 4      | 31.01.2021 | Open        |         |
-
-#### Mitwirkende Gesamte Zeitaufzeichung - [Excel Download](organisation/Zeitaufzeichnung%20per%20Mitwirkender.xlsx)
-| Platz | Name               | Gesamte Zeit |
-|:-----:|--------------------|:------------:|
-|   1   | Martin Hausleitner |    102:22    |
-|   2   | Romeo Bhuiyan      |     81:03    |
-|   3   | Zeno Paukner       |     79:20    |
-|   4   | Jakob Lehner       |     72:29    |
-
-
-
 ## Mitwirkende
 - Projektleiter: Zeno Paukner
 - Teammember: Romeo Bhuiyan
