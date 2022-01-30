@@ -10,7 +10,7 @@ export default function Navbar() {
             <div className="flex items-center flex-shrink-0 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="70%"
+                width="60%"
                 height="auto"
                 viewBox="0 0 610.113 84.182"
               >
