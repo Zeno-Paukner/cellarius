@@ -1,28 +1,32 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import Login from "./components/login.jsx";
 import Navbar from "./components/navbar.jsx";
-import ActionButtons from "./components/actionbuttons.jsx";
+import ActionButtons from "./components/actionButtons.jsx";
+import ShortcutPopup from "./components/shortcutPopup.jsx";
+import EmailConversation from "./components/emailConversation.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className=" App">
+    <div className="App">
+      {/* <Login /> */}
       <Navbar />
       <ActionButtons />
-
+      <ShortcutPopup />
       <div className="container px-2 pt-5 mx-auto ">
-        <div className="text-left">
-          <p>123/6234 Email</p>
+        <div className="flex">
+          <div className="flex-1 text-left">
+            Ticket: <span className="text-gray-600">#123</span>
+          </div>
+          <div className="flex-1 text-right">
+            Email: 123<span className="text-gray-400">/</span>6234
+          </div>
         </div>
-        <textarea className="block w-full mt-1 border-2 border-white focus:border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Kunden Email</textarea>
-        <textarea className="block w-full mt-1 bg-gray-300 border-2 border-gray-300 focus:border-gray-400 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Palido Replay 1</textarea>
-        <textarea className="block w-full mt-1 border-2 border-white focus:border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Kunden Replay 1</textarea>
-        <textarea className="block w-full mt-1 bg-gray-300 border-2 border-gray-300 focus:border-gray-400 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Palido Replay 2</textarea>
-        <textarea className="block w-full mt-1 border-2 border-white focus:border-gray-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Kunden Replay 2</textarea>
-        <textarea className="block w-full mt-1 bg-gray-300 border-2 border-gray-300 focus:border-gray-400 focus:ring focus:ring-indigo-200 focus:ring-opacity-0">Palido Replay 3</textarea>
-        
+        <div className="text-left">
+          <p>
+            <span className=""></span>
+          </p>
+        </div>
+        <EmailConversation />
       </div>
     </div>
   );
