@@ -17,6 +17,6 @@ Dieses Repository clonen und in das Verzeichnis wechseln. Dann die folgenden Bef
 
 ## Mitwirkende
 - Projektleiter: Zeno Paukner
+- Product-Owner: Martin Hausleitner
 - Teammember: Romeo Bhuiyan
-- Teammember: Martin Hausleitner
 - Teammember: Jakob Lehner
