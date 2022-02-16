@@ -29,7 +29,7 @@ ISV=imap.gmail.com
 MCS=mongodb://host1:abcde@127.3.256.40:3000/?authSource=test&readPreference=primary&appname=MongoDB%20Compass&ssl=false+
 ```
 
-#### Code
+#### Laden im mit os
 ```python
 load_dotenv()
 
