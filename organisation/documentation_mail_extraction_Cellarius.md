@@ -11,11 +11,11 @@
 
 ### Bibliotheken Import
 ```python
-import  os
-from  imap_tools  import  MailBox, AND
-from  dotenv  import  load_dotenv
-import  pymongo
-from  bs4  import  BeautifulSoup
+import os
+from imap_tools import MailBox, AND
+from dotenv import load_dotenv
+import pymongo
+from bs4 import BeautifulSoup
 ```
 
 ### Login Daten aus der .env laden 
