@@ -74,7 +74,7 @@ Entfernt alle doppelten Zeilenumbrüche und speichert alle E-Mails der E-Mailkon
 		email_texts_parsed.append(text)
 ```
 Erstellen und Initialisieren des Data Transfer Objects (DTO).
-```"data_status"``` dient als Validierungsindikator, ob die E-Mail zum Training verwendet werden kann.
+```"data_status"``` dient als Validierungsindikator, ob die E-Mail fürs Training verwendet werden kann. 0 = nicht überprüft
 ```python
 	email_conversation = {
 		"uid": msg.uid,
@@ -86,7 +86,7 @@ Erstellen und Initialisieren des Data Transfer Objects (DTO).
 		"data_status": 0
 	}
 ```
-Ausgabe auf die Konsole zur Kontrolle ob das Extrahieren funktioniert hat.
+Ausgabe auf die Konsole zur Laufzeitkontrolle.
 ```python
 	c = c + 1
 	print ("Saved:", c, msg.uid, msg.subject)  
