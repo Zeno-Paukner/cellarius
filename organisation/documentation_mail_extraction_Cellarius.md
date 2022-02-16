@@ -1,4 +1,4 @@
-# E-Mailkonversationen auslesen
+# E-Mailkonversationen mit IMAP auslesen und in MongoDB speichern
 ## Verwendete Bibliotheken (Python)
 | Bibliothek | Nutzen | Link |
 |--|--|--|
