@@ -28,7 +28,6 @@ UN=MaxMustermann
 ISV=imap.gmail.com
 MCS=mongodb://host1:abcde@127.3.256.40:3000/?authSource=test&readPreference=primary&appname=MongoDB%20Compass&ssl=false+
 ```
-IMAP ist ein Service um von allen Plattformen aus auf E-Mails zugreifen zu können IMAP Server eines E-Mailaccounts herausfinden: Optionen -> Einstellung -> IMAP/E-Mailserver
 
 #### Code
 ```python
@@ -49,7 +48,8 @@ mydb = myclient["Cellarius"]
 collection = mydb["email_conversations"]
 ```
 ### Verbindung zum IMAP Server
-IMAP (Internet Message Access Protocol) ist ein Service um von allen Plattformen aus auf E-Mails zugreifen zu können. IMAP Server eines E-Mailaccounts herausfinden: 
+IMAP (Internet Message Access Protocol) ist ein Service um von allen Plattformen aus auf E-Mails zugreifen zu können. 
+IMAP Server eines E-Mailaccounts herausfinden: 
 *Optionen -> Einstellung -> IMAP/E-Mailserver*
 
 ### Extrahieren der E-Mailkonversationen 
