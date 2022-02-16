@@ -7,6 +7,16 @@
 | BeautifulSoup | Konvertierung des HTML-Textes der E-Mail | https://www.crummy.com/software/BeautifulSoup/bs4/doc/ |
 | os, dotenv | Geheimhaltung der Login-Daten | https://docs.python.org/3/library/os.html, https://pypi.org/project/python-dotenv/ |
 
+## Verwendung
+Dieses Repository clonen und in das Verzeichnis wechseln. Dann die folgenden Befehle ausführen.
+1. Installationsvoraussetzungen
+
+```pip install -r requirements.txt```
+
+2. Code ausführen
+
+```python reademails.py```
+
 ## Code
 
 ### Bibliotheken Import
