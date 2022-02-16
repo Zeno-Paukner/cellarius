@@ -1,11 +1,11 @@
 # E-Mailkonversationen auslesen
 ## Verwendete Bibliotheken (Python)
-| Bibliothek | Nutzen |
-|--|--|
-| imap_tools | Verbindung zum E-Mailserver|
-| pymongo | Verbindung zur MongoDB |
-| BeautifulSoup | Konvertierung des HTML-Textes der E-Mail | 
-| os, dotenv | Geheimhaltung der Login-Daten |
+| Bibliothek | Nutzen | Link |
+|--|--|--|
+| imap_tools | Verbindung zum E-Mailserver | https://pypi.org/project/imap-tools/ |
+| pymongo | Verbindung zur MongoDB | https://pymongo.readthedocs.io/en/stable/ |
+| BeautifulSoup | Konvertierung des HTML-Textes der E-Mail | https://www.crummy.com/software/BeautifulSoup/bs4/doc/ |
+| os, dotenv | Geheimhaltung der Login-Daten | https://docs.python.org/3/library/os.html, https://pypi.org/project/python-dotenv/ |
 
 ## Code
 
