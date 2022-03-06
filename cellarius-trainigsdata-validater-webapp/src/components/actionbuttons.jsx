@@ -1,6 +1,13 @@
 import React from "react";
 import ShortcutPopup from "./shortcutpopup.jsx";
+import { createUndoRedo } from "react-undo-redo"
+
+
 export default function ActionButtons() {
+  const { UndoRedoProvider, usePresent, useUndoRedo } = createUndoRedo(reducer)
+
+    function Component() {
+        const [undo, redo] = useUndoRedo()}
   return (
     <div className="min-h-full ">
       <div className="bg-white">
@@ -10,11 +17,11 @@ export default function ActionButtons() {
               <div className="flex items-baseline space-x-3">
                 {/* Undo */}
                 <button
+                  disabled={!undo.isPossible} onClick={() => undo()}
                   type="button"
                   title="STRG + Z"
                   className="flex items-center  px-3 py-2.5 text-base text-gray-800 font-medium tracking-wide bg-gray-200 capitalize transition duration-100 ease-in-out transform  rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300 active:scale-95"
                 >
-              
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="24px"
