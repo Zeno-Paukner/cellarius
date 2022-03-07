@@ -35,12 +35,12 @@ for msg in mailbox.fetch(AND(all=True)):
         "from": msg.from_,
         "to": msg.to,
         "html": msg.html,
-        "email_texts" : email_texts_parsed,
+        "email_texts": email_texts_parsed,
         "data_status": 0
     }
 
     c = c + 1
-    x = collection.insert_one(email_conversation)
+    collection.insert_one(email_conversation)
     print ("Saved:", c, msg.uid, msg.subject)
 
 mailbox.logout()
