@@ -9,6 +9,7 @@ import time
 from subprocess import Popen, PIPE
 import sys
 from transformers import pipeline
+
 app = FastAPI()
 
 
