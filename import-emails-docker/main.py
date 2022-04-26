@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from bs4 import BeautifulSoup
 
 app = FastAPI()
+print("FastAPI server started")
 
 # create class ImportEmails with imap_username imap_password imap_server_url mongodb_connection_string collection_name
 class ImportEmails(BaseModel):
@@ -14,8 +15,7 @@ class ImportEmails(BaseModel):
     imap_server_url: str = os.environ.get('IMAP_PALIDO_SERVER')
     mongodb_connection_string: str = os.environ.get('ME_CONFIG_MONGODB_URL')
     collection_name: str = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
-    print("----------------------------------------------")
-    print(mongodb_connection_string)
+
 
 ImportEmails.mongodb_connection_string = os.environ.get('ME_CONFIG_MONGODB_URL')
 ImportEmails.collection_name = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
@@ -26,26 +26,31 @@ print(str(ImportEmails.collection_name))
     
 def scrape_emails(ImportEmails):
         myclient = pymongo.MongoClient(ImportEmails.mongodb_connection_string)
+        print("Connected successfully with; " + str(ImportEmails.mongodb_connection_string))
         mydb = myclient["Cellarius"]
         print("Connected to MongoDB")
         # create collection with name collection_name from ImportEmails
+
+        # TODO: the collection name is allways "None" it should be the name of the ImportEmails.collection_name var
         collection = mydb[str(ImportEmails.collection_name)]
-        print("Created collection")
+        print("Open collection :" + collection.name)
+        
         #if the collection allready exists then stop the def
         print(collection.count_documents({}))
         if collection.count_documents({}) > 0:
             print("Collection allready exists")
             return
         
+        # print out current collectionname
+        print("Collection created:" + collection.name)
+        
 
-        print("Start scraping emails")
+        print("Start scraping emails from:")
         print(str(ImportEmails.imap_server_url))
         print(str(ImportEmails.imap_username))
-        print(str(ImportEmails.imap_password))
         mailbox = MailBox(str(ImportEmails.imap_server_url))
         mailbox.login(str(ImportEmails.imap_username), str(ImportEmails.imap_password), initial_folder='INBOX')
         c = 0
-        print("Start loop")
         for msg in mailbox.fetch(AND(all=True)):
 
             soup = BeautifulSoup(msg.html, 'html.parser')
