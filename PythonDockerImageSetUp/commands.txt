@@ -1,8 +1,0 @@
-docker build -t pythoninteraction .
-
-docker run -ti pythoninteraction
-
-docker run -it pythoninteraction /bin/bash
-
-
-

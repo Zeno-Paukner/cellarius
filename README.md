@@ -3,14 +3,16 @@
 Cellarius ist eine künstliche Intelligenz, die auf eine Kundenemail eine Antwortemail generiert. Die generierten Antwortemails werden von einem Servicemitarbeiter kontrolliert (Human-in-the-loop) und dann von diesem an den Kunden zurückgeschickt. Die künstliche Intelligenz wird durch die korrigierten Antworten automatisch weiter trainiert. Das Anfangstraining erfolgt auf Basis aufbereiteter Emailkonversationen.
   
 ## Verwendung
-Dieses Repository clonen und in das Verzeichnis wechseln. Dann die folgenden Befehle ausführen.
-1. Installationsvoraussetzungen
 
-```pip install -r requirements.txt```
+### Installation
 
-2. Code ausführen
+```docker-compose --env-file .env up -d```
+### Webinterface
+#### MongoDB Express
+http://127.0.0.1:8081/
 
-```python reademails.py```
+#### SwaggerUI Import Emails
+http://127.0.0.1/docs
 
 ## Zeitaufzeichung
 [LIVE ClickUp Zeitaufzeichnung](https://sharing.clickup.com/l/h/5-90560575-1/a95ad6e55acd517)
