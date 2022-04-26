@@ -6,11 +6,9 @@ Cellarius ist eine künstliche Intelligenz, die auf eine Kundenemail eine Antwor
 
 ### Installation
 
-#### 1.
-fill out `.env.example` and rename it to `.env`
+1. fill out `.env.example` and rename it to `.env`
 
-#### 2.
-Run the docker-compose command to start the containers
+2. Run the docker-compose command to start the containers
 ```
 docker-compose --env-file .env up -d
 ```
@@ -20,8 +18,8 @@ docker-compose --env-file .env up -d
 ## Docker Images
 | Image               	| Docs 	| Port 	|
 |---------------------	|------	|------	|
-| import-emails       	| [README.md](import-emails-docker\README.md)      	| 8000 	|
-| gpt-neo-1-3B-docker 	| [README.md](gpt-neo-1-3B-docker\README.md)     	| 8001 	|
+| import-emails       	| [README.md](import-emails-docker/README.md)      	| 8000 	|
+| gpt-neo-1-3B-docker 	| [README.md](gpt-neo-1-3B-docker/README.md)     	| 8001 	|
 | mongo               	|      	|      	|
 | mongo-express       	|      	| 8081 	|
 
