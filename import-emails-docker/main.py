@@ -81,7 +81,7 @@ app = FastAPI()
 print("Rest-Server running")
 
 #create a post req to fill class ImportEmails
-@app.post("/")
+@app.post("/import_emails")
 async def import_emails(input: ImportEmails):
     #if the Input is empty fill in the os.environ
     scrape_emails(ImportEmails)

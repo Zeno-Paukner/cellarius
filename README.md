@@ -6,13 +6,27 @@ Cellarius ist eine künstliche Intelligenz, die auf eine Kundenemail eine Antwor
 
 ### Installation
 
-```docker-compose --env-file .env up -d```
-### Webinterface
-#### MongoDB Express
-http://127.0.0.1:8081/
+#### 1.
+fill out `.env.example` and rename it to `.env`
 
-#### SwaggerUI Import Emails
-http://127.0.0.1/docs
+#### 2.
+Run the docker-compose command to start the containers
+```
+docker-compose --env-file .env up -d
+```
+
+
+
+## Docker Images
+| Image               	| Docs 	| Port 	|
+|---------------------	|------	|------	|
+| import-emails       	| [README.md](import-emails-docker\README.md)      	| 8000 	|
+| gpt-neo-1-3B-docker 	| [README.md](gpt-neo-1-3B-docker\README.md)     	| 8001 	|
+| mongo               	|      	|      	|
+| mongo-express       	|      	| 8081 	|
+
+
+
 
 ## Zeitaufzeichung
 [LIVE ClickUp Zeitaufzeichnung](https://sharing.clickup.com/l/h/5-90560575-1/a95ad6e55acd517)
