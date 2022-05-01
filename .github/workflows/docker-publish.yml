@@ -7,7 +7,7 @@ name: Create and publish Docker image/package
 
 on:
   push:
-    branches: [ * ]
+    branches: [ '*' ]
 
 
 env:
