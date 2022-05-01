@@ -18,8 +18,9 @@ docker-compose --env-file .env up -d
 ## Docker Images
 | Image               	| Docs 	| Port 	|
 |---------------------	|------	|------	|
-| import-emails       	| [README.md](import-emails-docker/README.md)      	| 8000 	|
-| gpt-neo-1-3B-docker 	| [README.md](gpt-neo-1-3B-docker/README.md)     	| 8001 	|
+| cellarius-import-emails       	| [README.md](import-emails-api-docker/README.md)      	| 8000 	|
+| cellarius-ai-api 	| [README.md](ai-api-docker/README.md)     	| 8080 	|
+| cellarius-proxy 	|     	| - 	|
 | mongo               	|      	|      	|
 | mongo-express       	|      	| 8081 	|
 
