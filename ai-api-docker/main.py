@@ -7,7 +7,6 @@ from transformers import pipeline
 app = FastAPI()
 
 
-
 generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
 
 class Input_GPT_Neo_1_3B(BaseModel):
