@@ -7,30 +7,23 @@ name: Create and publish Docker image/package
 
 on:
   push:
-    branches: [ * ]
-
-
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+    branches: [ '*' ]
 
 
 jobs:
-  build:
+  build_email_import:
+    name: Build email import
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: cellarius-import-emails
     defaults:
       run:
-        working-directory: ./import-emails-docker
+        working-directory: ./import-emails-api-docker
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Login to GitHub Packages
         uses: docker/login-action@v1
-
        with:
           registry: ghcr.io
           username: ${{ github.actor }}
