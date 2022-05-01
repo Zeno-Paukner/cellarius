@@ -13,25 +13,27 @@ print("Rest-Server running")
 
 # create class ImportEmails with imap_username imap_password imap_server_url mongodb_connection_string collection_name
 class ImportEmails(BaseModel):
-    imap_username: str = "username"
-    imap_password: str = "password"
+    imap_username: str = os.environ.get('IMAP_PALIDO_USERNAME')
+    imap_password: str = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
     imap_server_url: str = os.environ.get('IMAP_PALIDO_SERVER')
     mongodb_connection_string: str = os.environ.get('ME_CONFIG_MONGODB_URL')
     collection_name: str = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 
-# if ImportEmails.imap_username == "username" then use  os.environ.get('IMAP_PALIDO_USERNAME')
-# if ImportEmails.imap_password == "password" then use  os.environ.get('IMAP_PALIDO_PASSWORD')
-if(ImportEmails.imap_username == "username"):
-    ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
-if(ImportEmails.imap_password == "password"):
-    ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_PASSWORD')
 
-
+ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
+ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
 ImportEmails.mongodb_connection_string = os.environ.get('ME_CONFIG_MONGODB_URL')
 ImportEmails.collection_name = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 ImportEmails.imap_server_url = os.environ.get('IMAP_PALIDO_SERVER')
     
 def scrape_emails(ImportEmails):
+    # connect to mongodb
+        # if ImportEmails.imap_username == "username" then use  os.environ.get('IMAP_PALIDO_USERNAME')
+# if ImportEmails.imap_password == "password" then use  os.environ.get('IMAP_PALIDO_PASSWORD')
+        #if(ImportEmails.imap_username == "username"):
+        #    ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
+        #if(ImportEmails.imap_password == "password"):
+        #    ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_PASSWORD')
         myclient = pymongo.MongoClient(ImportEmails.mongodb_connection_string)
 
         #check if mongodb is connected
@@ -61,9 +63,9 @@ def scrape_emails(ImportEmails):
         print("Collection created:" + collection.name)
         
 
-        print("Start scraping emails from:")
-        print(str(ImportEmails.imap_server_url))
-        print(str(ImportEmails.imap_username))
+        #print("Start scraping emails from:")
+        #print(str(ImportEmails.imap_server_url))
+        #print(str(ImportEmails.imap_username))
         mailbox = MailBox(str(ImportEmails.imap_server_url))
         mailbox.login(str(ImportEmails.imap_username), str(ImportEmails.imap_password), initial_folder='INBOX')
         c = 0
@@ -111,7 +113,8 @@ async def root():
     return {"message": "Hello World"}
 
 
-uvicorn.run(app, host="0.0.0.0", port=8000, root_path="/cellarius/import-emails")
+uvicorn.run(app, host="0.0.0.0", port=8000)
+#uvicorn.run(app, host="0.0.0.0", port=8000, root_path="/cellarius/import-emails")
 
 
 

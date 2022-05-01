@@ -20,8 +20,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${ME_CONFIG_MONGODB_ADMINPASSWORD}
       ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
   
-  emails-import:
-    image: emails-import
+  cellarius-import-emails:
+    image: cellarius-import-emails
     restart: unless-stopped
     ports:
       - 8000:8000
@@ -30,6 +30,13 @@ services:
       IMAP_PALIDO_EMAIL_PASSWORD: ${IMAP_PALIDO_EMAIL_PASSWORD}
       IMAP_PALIDO_SERVER: ${IMAP_PALIDO_SERVER}
       ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
+
+  cellarius-ai-api:
+    image: cellarius-ai-api
+    restart: unless-stopped
+    ports:
+      - 8082:8082
+  
   #gpt-neo-1-3B-docker:
   #  image: gpt-neo-1-3b-docker
   #  restart: unless-stopped
