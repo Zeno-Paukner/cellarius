@@ -11,10 +11,9 @@ on:
 
 
 jobs:
-  build:
-
+  build_email_import:
+    name: Build email import
     runs-on: ubuntu-latest
-
     env:
       IMAGE_NAME: cellarius-import-emails
       
