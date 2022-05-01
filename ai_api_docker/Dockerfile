@@ -12,6 +12,8 @@ RUN apt update && \
                    python3-pip && \
     rm -rf /var/lib/apt/lists
 
+
+
 RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir \
     jupyter \
@@ -24,7 +26,11 @@ RUN cd transformers/ && \
     python3 -m pip install --no-cache-dir .
 
 COPY requirements.txt .
+
 RUN pip install -r requirements.txt
 COPY main.py ./
+COPY init.py ./
+
+RUN python3 init.py
 
 CMD [ "python3", "./main.py"]
