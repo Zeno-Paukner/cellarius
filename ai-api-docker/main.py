@@ -7,6 +7,7 @@ app = FastAPI()
 
 from transformers import pipeline
 
+generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
 
 class Input_GPT_Neo_1_3B(BaseModel):
     prompt: str 
@@ -29,7 +30,7 @@ async def input_text(input: Input_GPT_Neo_1_3B):
     print(input.do_sample)
     print(input.temperature)
     print("Loading ...")
-    res = pipeline(str(input.prompt), max_length=50, do_sample=True, temperature=0.9)
+    res = generator(str(input.prompt), max_length=50, do_sample=True, temperature=0.9)
     return Output(output=res[0]['generated_text'], status="OK", error_massage="", loading_time_seconds=(time.time() - start_time))
 
 @app.get("/")
