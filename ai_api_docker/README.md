@@ -35,10 +35,19 @@ SwaggerUI API debugger
 ```
 http://localhost:8000/docs
 ```
-Build docker Image
+Build docker Image  
 ```
 cd .\import-emails-docker\; docker build -t emails-import .; cd ..; docker-compose --env-file .env up
 ```
 
 
 docker build -t test1 .
+
+# Commands for dockerized Rest Service
+```
+docker build -t ai_image .
+```
+docker run -p 8080:8080 ai_image
+```
+
+http://localhost:8080/docs#/
