@@ -19,12 +19,16 @@ env:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+    
     env:
       IMAGE_NAME: cellarius-import-emails
+      
     defaults:
       run:
         working-directory: ./import-emails-docker
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
