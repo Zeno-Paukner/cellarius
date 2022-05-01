@@ -19,10 +19,16 @@ class ImportEmails(BaseModel):
     mongodb_connection_string: str = os.environ.get('ME_CONFIG_MONGODB_URL')
     collection_name: str = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 
+# if ImportEmails.imap_username == "username" then use  os.environ.get('IMAP_PALIDO_USERNAME')
+# if ImportEmails.imap_password == "password" then use  os.environ.get('IMAP_PALIDO_PASSWORD')
+if(ImportEmails.imap_username == "username"):
+    ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
+if(ImportEmails.imap_password == "password"):
+    ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_PASSWORD')
+
+
 ImportEmails.mongodb_connection_string = os.environ.get('ME_CONFIG_MONGODB_URL')
 ImportEmails.collection_name = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
-ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
-ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
 ImportEmails.imap_server_url = os.environ.get('IMAP_PALIDO_SERVER')
     
 def scrape_emails(ImportEmails):

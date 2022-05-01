@@ -38,8 +38,6 @@ async def generate_text(input: GeneratorPipeline):
     # retrun "KI started" and time
     return {"status": "KI started", "time": str(time.time() - start_time)}
 
-
-
     
 # Create a class Input  prompt, max_length=50, do_sample=True, temperature=0.9
 class Input_GPT_Neo_1_3B(BaseModel):
