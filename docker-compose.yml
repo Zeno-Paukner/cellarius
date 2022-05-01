@@ -30,8 +30,8 @@ services:
       IMAP_PALIDO_EMAIL_PASSWORD: ${IMAP_PALIDO_EMAIL_PASSWORD}
       IMAP_PALIDO_SERVER: ${IMAP_PALIDO_SERVER}
       ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
-  gpt-neo-1-3B-docker:
-    image: gpt-neo-1-3b-docker
-    restart: unless-stopped
-    ports:
-      - 8001:8001
+  #gpt-neo-1-3B-docker:
+  #  image: gpt-neo-1-3b-docker
+  #  restart: unless-stopped
+  #  ports:
+  #    - 8001:8001

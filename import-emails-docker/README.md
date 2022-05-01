@@ -2,7 +2,7 @@
 
 # Run Docker Image
 ```
-docker run -d --name emails-import1 -p 80:80 emails-import
+docker run -d -p 8000:8000 emails-import
 ```
 
 
@@ -37,5 +37,5 @@ http://localhost:8000/docs
 ```
 Build docker Image
 ```
-docker build -t import-emails .
+cd .\import-emails-docker\; docker build -t emails-import .; cd ..; docker-compose --env-file .env up
 ```

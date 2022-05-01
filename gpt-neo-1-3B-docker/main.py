@@ -34,7 +34,7 @@ async def generate_text(input: GeneratorPipeline):
     print(input.model)
     print("Start KI")
     print("Loading ...")
-    #generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
+    generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
     # retrun "KI started" and time
     return {"status": "KI started", "time": str(time.time() - start_time)}
 

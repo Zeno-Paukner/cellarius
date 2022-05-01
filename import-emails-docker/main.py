@@ -4,9 +4,12 @@ import pymongo
 from pydantic import BaseModel
 from fastapi import FastAPI
 from bs4 import BeautifulSoup
+import uvicorn
 
 app = FastAPI()
-print("FastAPI server started")
+#check if rest api is running
+
+print("Rest-Server running")
 
 # create class ImportEmails with imap_username imap_password imap_server_url mongodb_connection_string collection_name
 class ImportEmails(BaseModel):
@@ -16,30 +19,37 @@ class ImportEmails(BaseModel):
     mongodb_connection_string: str = os.environ.get('ME_CONFIG_MONGODB_URL')
     collection_name: str = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 
-
 ImportEmails.mongodb_connection_string = os.environ.get('ME_CONFIG_MONGODB_URL')
 ImportEmails.collection_name = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
 ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
 ImportEmails.imap_server_url = os.environ.get('IMAP_PALIDO_SERVER')
-print(str(ImportEmails.collection_name))
     
 def scrape_emails(ImportEmails):
         myclient = pymongo.MongoClient(ImportEmails.mongodb_connection_string)
-        print("Connected successfully with; " + str(ImportEmails.mongodb_connection_string))
+
+        #check if mongodb is connected
+        if myclient:
+            print("MongoDB is connected")
+            print("Connected with: " + str(ImportEmails.mongodb_connection_string))
         mydb = myclient["Cellarius"]
         print("Connected to MongoDB")
         # create collection with name collection_name from ImportEmails
 
         # TODO: the collection name is allways "None" it should be the name of the ImportEmails.collection_name var
-        collection = mydb[str(ImportEmails.collection_name)]
+        col = "imported_emails"
+
+        collection = mydb[col]
         print("Open collection :" + collection.name)
         
         #if the collection allready exists then stop the def
         print(collection.count_documents({}))
-        if collection.count_documents({}) > 0:
-            print("Collection allready exists")
+        # if the collection has more then one document then stop the def
+        if collection.count_documents({}) > 1:
+            print("Collection has more then one document")
             return
+
+        
         
         # print out current collectionname
         print("Collection created:" + collection.name)
@@ -79,17 +89,24 @@ def scrape_emails(ImportEmails):
 
 
 # run ImportEmails scrape_emails
-scrape_emails(ImportEmails)
 
-app = FastAPI()
-#check if rest api is running
-print("Rest-Server running")
+
+#scrape_emails(ImportEmails)
 
 #create a post req to fill class ImportEmails
-@app.post("/import_emails")
+@app.post("/start-import-emails")
 async def import_emails(input: ImportEmails):
     #if the Input is empty fill in the os.environ
     scrape_emails(ImportEmails)
     return "OK"
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+
+uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
 
 
