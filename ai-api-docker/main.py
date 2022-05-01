@@ -2,10 +2,11 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 import uvicorn
 import time
+from transformers import pipeline
 
 app = FastAPI()
 
-from transformers import pipeline
+
 
 generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
 
