@@ -1,3 +1,3 @@
 
 from transformers import pipeline
-pipeline(str(input.prompt), max_length=50, do_sample=True, temperature=0.9)
+generator = pipeline('text-generation', model='EleutherAI/gpt-neo-2.7B')

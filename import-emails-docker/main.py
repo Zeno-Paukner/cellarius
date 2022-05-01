@@ -13,14 +13,16 @@ print("Rest-Server running")
 
 # create class ImportEmails with imap_username imap_password imap_server_url mongodb_connection_string collection_name
 class ImportEmails(BaseModel):
-    imap_username: str = os.environ.get('IMAP_PALIDO_USERNAME')
-    imap_password: str = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
+    imap_username: str = "username"
+    imap_password: str = "password"
     imap_server_url: str = os.environ.get('IMAP_PALIDO_SERVER')
     mongodb_connection_string: str = os.environ.get('ME_CONFIG_MONGODB_URL')
     collection_name: str = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
 
 ImportEmails.mongodb_connection_string = os.environ.get('ME_CONFIG_MONGODB_URL')
 ImportEmails.collection_name = os.environ.get('IMPORT_EMAILS_MONGODB_COLLECTION_NAME')
+ImportEmails.imap_username = os.environ.get('IMAP_PALIDO_USERNAME')
+ImportEmails.imap_password = os.environ.get('IMAP_PALIDO_EMAIL_PASSWORD')
 ImportEmails.imap_server_url = os.environ.get('IMAP_PALIDO_SERVER')
     
 def scrape_emails(ImportEmails):

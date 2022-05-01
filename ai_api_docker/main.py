@@ -8,7 +8,6 @@ app = FastAPI()
 from transformers import pipeline
 
 
-
 class Input_GPT_Neo_1_3B(BaseModel):
     prompt: str 
     max_length: int 
