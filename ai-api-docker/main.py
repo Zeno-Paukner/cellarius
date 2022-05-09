@@ -7,7 +7,6 @@ from transformers import pipeline
 app = FastAPI()
 
 
-
 generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
 
 class Input_GPT_Neo_1_3B(BaseModel):
@@ -39,5 +38,7 @@ async def root():
     return {"message": "Hello World"}
 
 
+
+
 #uvicorn.run(app, host="0.0.0.0", port=8000, root_path="/cellarius/import-emails")
-uvicorn.run(app, host="0.0.0.0", port=8080)
+uvicorn.run(app, host="0.0.0.0", port=8080, root_path="/cellarius/ai")

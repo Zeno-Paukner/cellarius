@@ -31,6 +31,6 @@ RUN pip install -r requirements.txt
 COPY main.py ./
 COPY init.py ./
 
-RUN python3 init.py
+# RUN python3 init.py
 
 CMD [ "python3", "./main.py"]
