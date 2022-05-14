@@ -1,0 +1,214 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cellarius-import-emails
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cellarius-import-emails
+  template:
+    metadata:
+      labels:
+        app: cellarius-import-emails
+    spec:
+      containers:
+        - env:
+            - name: IMAP_PASSWORD
+              value: ${{ secrets.IMAP_PASSWORD }}
+            - name: IMAP_USERNAME
+              value: ${{ secrets.IMAP_USERNAME }}
+            - name: IMAP_SERVER
+              value: ${{ secrets.IMAP_SERVER }}
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: ${{ secrets.ME_CONFIG_MONGODB_ADMINUSERNAME }}
+            - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+              value: ${{ secrets.ME_CONFIG_MONGODB_ADMINPASSWORD }}
+            - name: ME_CONFIG_MONGODB_URL
+              value: ${{ secrets.ME_CONFIG_MONGODB_URL }}
+            - name: IMPORT_EMAILS_MONGODB_COLLECTION_NAME
+              value: ${{ secrets.IMPORT_EMAILS_MONGODB_COLLECTION_NAME }}
+          image: ghcr.io/zeno-paukner/cellarius-import-emails:latest
+          name: cellarius-import-emails
+          ports:
+            - containerPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cellarius-mongo-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cellarius-mongo-express
+  template:
+    metadata:
+      labels:
+        app: cellarius-mongo-express
+    spec:
+      containers:
+        - env:
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: root
+            - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+              value: example
+            - name: ME_CONFIG_MONGODB_URL
+              value: mongodb://root:example@mongo-db:27017/
+            - name: ME_CONFIG_SITE_BASEURL 
+              value: /cellarius/mongo-express/
+            - name: ME_CONFIG_BASICAUTH_USERNAME
+              value: cellarius
+            - name: ME_CONFIG_BASICAUTH_PASSWORD
+              value: SYP!4chif
+          image: mongo-express
+          name: cellarius-mongo-express
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cellarius-mongo-express
+spec:
+  ports:
+    - name: "http"
+      port: 8081
+      targetPort: 8081
+  selector:
+    app: cellarius-mongo-express
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cellarius-import-emails
+spec:
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+  selector:
+    app: cellarius-import-emails
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-db
+  template:
+    metadata:
+      labels:
+        app: mongo-db
+    spec:
+      containers:
+        - env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: root
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: example
+          image: mongo:4.4.3
+          name: cellarius-mongo-db
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 6
+          readinessProbe:
+            exec:
+              command:
+                - mongo
+                - --disableImplicitSessions
+                - --eval
+                - "db.adminCommand('ping')"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 6
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cellarius-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cellarius-proxy
+  template:
+    metadata:
+      labels:
+        app: cellarius-proxy
+    spec:
+      containers:
+          - image: ghcr.io/zeno-paukner/cellarius-proxy:latest
+            name: cellarius-proxy
+            ports:
+              - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cellarius-proxy
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: cellarius-proxy
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db
+spec:
+  ports:
+    - name: "http"
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cellarius-ai-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cellarius-ai-api
+  template:
+    metadata:
+      labels:
+        app: cellarius-ai-api
+    spec:
+      containers:
+          - image: ghcr.io/zeno-paukner/cellarius-ai-api:latest
+            name: cellarius-ai-api
+            ports:
+              - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cellarius-ai-api
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: cellarius-ai-api
