@@ -94,20 +94,6 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION    
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Login to GitHub Packages
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build image
-        run: docker build . --tag $IMAGE_NAME
-      - name: Push image
-        run: |
   build_front_end:
     name: Build ai-api
     runs-on: ubuntu-latest
