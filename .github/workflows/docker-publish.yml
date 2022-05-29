@@ -109,7 +109,7 @@ jobs:
       - name: Push image
         run: |
   build_front_end:
-  name: Build ai-api
+    name: Build ai-api
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: cellarius-front-end
