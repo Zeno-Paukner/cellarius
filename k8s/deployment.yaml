@@ -290,24 +290,23 @@ spec:
   selector:
     app: cellarius-ai-api
 ---
-# nginx Web Server
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aduno-frontend
+  name: cellarius-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aduno-frontend
+      app: cellarius-frontend
   template:
     metadata:
       labels:
-        app: aduno-frontend
+        app: cellarius-frontend
     spec:
       containers:
-        - name: aduno-frontend
-          image: ghcr.io/steinmax/aduno-frontend:latest
+        - name: cellarius-frontend
+          image: ghcr.io/Zeno-Paukner/cellarius-frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
