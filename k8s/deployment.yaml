@@ -235,7 +235,7 @@ spec:
     - host: student.cloud.htl-leonding.ac.at
       http:
         paths:
-          - path: /z.paukner/cellarius(/|$)(.*)$
+          - path: /z.paukner(/|$)(.*)$
             pathType: Prefix
             backend:
               service:
@@ -272,7 +272,7 @@ spec:
       containers:
           - env:
             - name: ROOT_PATH 
-              value: /z.paukner/cellarius/ai
+              value: /z.paukner
             image: ghcr.io/zeno-paukner/cellarius-ai-api:latest
             name: cellarius-ai-api
             ports:
