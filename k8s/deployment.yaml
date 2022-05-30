@@ -111,7 +111,7 @@ spec:
             - name: ME_CONFIG_MONGODB_URL
               value: mongodb://root:example@mongo-db:27017/
             - name: ME_CONFIG_SITE_BASEURL 
-              value: /cellarius/mongo-express/
+              value: /mongo-express/
             - name: ME_CONFIG_BASICAUTH_USERNAME
               value: cellarius
             - name: ME_CONFIG_BASICAUTH_PASSWORD
@@ -289,55 +289,3 @@ spec:
       targetPort: 8080
   selector:
     app: cellarius-ai-api
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: cellarius-frontend
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: cellarius-frontend
-  template:
-    metadata:
-      labels:
-        app: cellarius-frontend
-    spec:
-      containers:
-        - name: cellarius-frontend
-          image: ghcr.io/Zeno-Paukner/cellarius-frontend:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: cellarius-frontend-service
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: cellarius-frontend
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-  name: cellarius-frontend-ingress
-metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-spec:
-  rules:
-    - host: student.cloud.htl-leonding.ac.at
-      http:
-        paths:
-          - path: /z.paukner/frontend(/|$)(.*)$
-            pathType: Prefix
-            backend:
-              service:
-                name: cellarius-frontend-service
-                port:
-                  number: 80
