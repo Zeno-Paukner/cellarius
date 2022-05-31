@@ -6,8 +6,7 @@ import os
 from transformers import pipeline
 
 
-os_root_path = os.environ.get('ROOT_PATH')
-print(os_root_path)
+
 
 
 app = FastAPI()
@@ -28,6 +27,15 @@ class Output(BaseModel):
     error_massage: str
     loading_time_seconds: float
 
+os_root_path = os.environ.get('ROOT_PATH')
+print(os_root_path)
+
+@app.get("/root_path")
+async def root():
+    return {"message": os_root_path}
+
+
+
 @app.post("/input")
 async def input_text(input: Input_GPT_Neo_1_3B):
     start_time = time.time()
@@ -47,4 +55,4 @@ async def root():
 
 
 #uvicorn.run(app, host="0.0.0.0", port=8000, root_path="/cellarius/import-emails")
-uvicorn.run(app, host="0.0.0.0", port=8080, root_path=os_root_path)
+uvicorn.run(app, host="0.0.0.0", port=8080, root_path="/z.paukner")
