@@ -4,7 +4,8 @@ from fastapi import FastAPI
 
 import uvicorn
 
-app = FastAPI(root_path="/z.paukner")
+app = FastAPI(root_path="/")
+# app = FastAPI(root_path="/z.paukner")
 #check if rest api is running
 
 print("Rest-Server running")
