@@ -30,6 +30,20 @@ services:
       IMAP_PALIDO_EMAIL_PASSWORD: ${IMAP_PALIDO_EMAIL_PASSWORD}
       IMAP_PALIDO_SERVER: ${IMAP_PALIDO_SERVER}
       ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
+      
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.7
+    # Enables the web UI and tells Traefik to listen to docker
+    command: --api.insecure=true --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
   #gpt-neo-1-3B-docker:
   #  image: gpt-neo-1-3b-docker
   #  restart: unless-stopped
