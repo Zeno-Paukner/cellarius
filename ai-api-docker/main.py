@@ -14,7 +14,7 @@ app = FastAPI(root_path="/z.paukner")
 print("Rest-Server running")
 
 
-generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
+generator = pipeline('text-generation', model='EleutherAI/gpt-j-6B')
 
 class Input_GPT_Neo_1_3B(BaseModel):
     prompt: str 
