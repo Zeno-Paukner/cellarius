@@ -11,6 +11,8 @@ from transformers import pipeline
 
 app = FastAPI()
 
+print("Rest-Server running")
+
 
 generator = pipeline('text-generation', model='EleutherAI/gpt-neo-1.3B')
 
