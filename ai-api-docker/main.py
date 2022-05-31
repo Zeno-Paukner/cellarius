@@ -1,9 +1,7 @@
 import os
-from imap_tools import MailBox, AND
-import pymongo
-from pydantic import BaseModel
+
 from fastapi import FastAPI
-from bs4 import BeautifulSoup
+
 import uvicorn
 
 app = FastAPI(root_path="/z.paukner")
