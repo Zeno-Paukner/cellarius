@@ -1,10 +1,7 @@
-# insert pip installs
-imap_tools 
+transformers
 fastapi>=0.68.0,<0.69.0
 pydantic>=1.8.0,<2.0.0
 uvicorn>=0.15.0,<0.16.0
-pymongo
-bs4 
 pydantic
 dnspython
 uvicorn
