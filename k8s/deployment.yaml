@@ -217,7 +217,8 @@ spec:
       containers:
           - env:
             - name: ROOT_PATH 
-              value: /z.paukner
+              value: /
+              #value: /z.paukner
             image: ghcr.io/zeno-paukner/cellarius-ai-api:latest
             name: cellarius-ai-api
             ports:
