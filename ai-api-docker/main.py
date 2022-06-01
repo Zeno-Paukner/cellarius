@@ -6,15 +6,12 @@ import os
 from transformers import pipeline
 
 
-
-
-
 app = FastAPI(root_path="/z.paukner")
 
 print("Rest-Server running")
 
 
-generator = pipeline('text-generation', model='EleutherAI/gpt-j-6B')
+generator = pipeline('text-generation', model='EleutherAI/gpt-neox-20b')
 
 class Input_GPT_Neo_1_3B(BaseModel):
     prompt: str 
