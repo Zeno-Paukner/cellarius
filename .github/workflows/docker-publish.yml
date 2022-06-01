@@ -93,7 +93,18 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION    
+          docker push $IMAGE_ID:$VERSION
+      - name: Deploy to Leocloud
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      - uses: actions-hub/kubectl@master
+        with:
+          args: apply -f ../k8s/deployment.yaml
+      - uses: actions-hub/kubectl@master
+        with:
+          args: get pods
+
+
 #  build_front_end:
 #    name: Build front-end
 #    runs-on: ubuntu-latest
