@@ -66,14 +66,14 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-      - name: Deploy to Leocloud
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-
-      - uses: actions-hub/kubectl@master
-        with:
-          args: get pods
+      #- name: Deploy to Leocloud
+      #  uses: actions-hub/kubectl@master
+      #  env:
+      #    KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+#
+      #- uses: actions-hub/kubectl@master
+      #  with:
+      #    args: get pods
   build_ai_api:
     name: Build ai-api
     runs-on: ubuntu-latest
