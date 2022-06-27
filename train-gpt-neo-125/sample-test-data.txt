@@ -1,0 +1,4 @@
+Line 1: Diese Uhr hat einen Defekt seitdem ich sie gekauft habe
+Line 2: Mein Ehering ist spröde geworden
+Line 3: Palido gehört zur Paukner GmbH, das ist ein Fakt
+Line 4: Ich möchte die Batterien meiner Uhr wechseln
